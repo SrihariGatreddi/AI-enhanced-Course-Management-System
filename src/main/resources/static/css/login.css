@@ -1,0 +1,192 @@
+/* ====================
+   1. Login Page Specific Styles
+   ==================== */
+
+:root {
+    --radiant-orange: #FF4F18;
+    --pure-white: #FFFFFF;
+    --fog-gray: #F2F4F7;
+    --coal-black: #141117;
+    --border-color: #dee2e6;
+    --success-bg: #D1E7DD;
+    --success-text: #0F5132;
+    --danger-bg: #F8D7DA;
+    --danger-text: #842029;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--pure-white);
+    color: var(--coal-black);
+    line-height: 1.6;
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Form Section (Left Side) */
+.login-form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem; /* Increased padding to make space for the button */
+    position: relative; /* Needed for absolute positioning of the button */
+}
+
+.login-logo {
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+}
+
+.login-logo img {
+    height: 45px;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.form-container p {
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--radiant-orange);
+    box-shadow: 0 0 0 3px rgba(255, 79, 24, 0.2);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--radiant-orange);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #E04515;
+    transform: translateY(-2px);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.register-link a {
+    color: var(--radiant-orange);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.home-link {
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+}
+
+.home-link a {
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 0.8rem 1.5rem;
+    background-color: var(--radiant-orange);
+    color: var(--coal-black);
+    font-weight: 700; /* Bold text */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-link a:hover {
+    background-color: #E04515; /* Darker orange */
+    color: var(--coal-black);
+    transform: translateY(-2px);
+}
+
+/* Image Section (Right Side) */
+.login-image-section {
+    background-image: url('../images/login.png'); /* Updated image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Alert Styles */
+.alert {
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border-color: #BADBCC;
+}
+
+.alert-danger {
+    background-color: var(--danger-bg);
+    color: var(--danger-text);
+    border-color: #F5C2C7;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+    .login-image-section {
+        display: none; /* Hide image on smaller screens */
+    }
+    .login-form-section {
+        padding: 2rem;
+    }
+    .login-logo {
+        position: static;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}

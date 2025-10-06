@@ -1,0 +1,207 @@
+body {
+    background-color: #e9e7f3; /* UPDATED: A more precise match to the image */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #2d0b4e 0%, #6a4fc2 100%);
+    padding: 0.7rem 2rem;
+    color: #fff;
+}
+.navbar-left .logo {
+    height: 48px;
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.nav-link {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+}
+.nav-link:hover {
+    color: #fff;
+}
+.student-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #2d0b4e;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+.profile-icon {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background: #6a4fc2;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center; /* Changed to center the content */
+    align-items: flex-start; /* Changed to align items to the start */
+    gap: 3rem;
+    margin: 2rem auto; /* Centered the container itself */
+    max-width: 1400px; /* Increased max-width for better display */
+    padding: 0 2rem; /* Added padding for smaller screens */
+}
+.main-left {
+    flex: 0 0 auto; /* NEW: Don't grow or shrink, take natural width */
+    width: auto; /* NEW: Auto width */
+    max-width: 600px; /* NEW: Increased max-width to allow image to be larger */
+    display: flex;
+    align-items: center; /* NEW: Vertically center image if needed */
+    justify-content: center; /* NEW: Horizontally center image */
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+.main-image {
+    width: 100%; /* NEW: Image will fill its parent's width up to max-width */
+    height: auto; /* NEW: Maintain aspect ratio */
+    display: block; /* NEW: Important for margin: auto to work */
+    object-fit: contain; /* NEW: Ensure full image is visible, scale down if needed */
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+    margin: 0; /* NEW: Reset margin */
+    position: relative;
+    mix-blend-mode: normal; /* IMPORTANT: Changed to normal to avoid color distortion */
+    /* Removed min-height: 100%; */
+}
+.main-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 0; /* Reset margin-left */
+    align-items: flex-start; /* Aligned to start */
+    flex: 1; /* Allow right side to take available space */
+    max-width: 450px; /* Adjusted max width for better layout */
+}
+.slider-container, .enroll-form-container {
+    flex: none; /* Changed from flex: 1 to none to not take up excess space */
+    min-width: 0;
+    max-width: 100%; /* Allow to fill parent */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.slider-container {
+    margin-bottom: 0;
+}
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+}
+.slider-image {
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #2d0b4e33;
+}
+.enroll-form-container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 0 20px #6a4fc244;
+    width: 100%;
+    max-width: 400px;
+}
+.enroll-form-container h2 {
+    color: #6a4fc2;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#enroll-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #2d0b4e;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+#enroll-form input, #enroll-form select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.7rem;
+    border: 1px solid #6a4fc2;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #f3f0fa;
+}
+.submit-btn {
+    background: linear-gradient(90deg, #ff9800 0%, #6a4fc2 100%);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #2d0b4e33;
+    transition: background 0.3s;
+}
+.submit-btn:hover {
+    background: linear-gradient(90deg, #6a4fc2 0%, #ff9800 100%);
+}
+
+.footer {
+    background: #2d0b4e;
+    color: #fff;
+    padding: 1.2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.social-links {
+    margin-top: 0.7rem;
+}
+.social-links a {
+    margin: 0 0.7rem;
+    display: inline-block;
+    color: #6a4fc2;
+    font-size: 2rem;
+    transition: color 0.2s;
+}
+.social-links a:hover {
+    color: #ff9800;
+}
+.social-links i {
+    vertical-align: middle;
+}
+
+/* Optional: Add some responsive adjustments */
+@media (max-width: 1000px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem auto;
+        gap: 2rem;
+    }
+    .main-left, .main-right {
+        max-width: 90%;
+        width: 100%;
+        margin-left: 0;
+    }
+    .enroll-form-container, .slider-container {
+        max-width: 100%;
+    }
+    .main-image {
+        max-width: 100%;
+        height: auto;
+    }
+}

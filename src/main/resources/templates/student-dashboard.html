@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/student-dashboard.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Dashboard Navbar -->
+    <nav class="dashboard-nav">
+        <div class="navbar-logo">
+            <a th:href="@{/}"><img th:src="@{/images/78660466.png}" alt="Logo" style="height:40px;"></a>
+        </div>
+        <div class="dashboard-nav-links">
+            <a th:href="@{/student/enroll-course}" class="btn btn-enroll">Enroll New Course</a>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <button type="submit" class="btn btn-logout">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-main-flex">
+        <div class="dashboard-left">
+            <div class="dashboard-top-row">
+                <img th:src="@{/images/student registration5.png}" alt="Student Dashboard Top" class="dashboard-top-image">
+                <div class="welcome-text">
+                    <h1>Welcome back for happy learning!</h1>
+                    <p class="tagline">Have doubt? <span>Ask AI assistant</span></p>
+                </div>
+            </div>
+            <section class="courses-section">
+                <h2>My Registered Courses</h2>
+                <table class="courses-table">
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Instructor</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="course : ${courses}">
+                            <td th:text="${course.courseName}"></td>
+                            <td th:text="${course.studentName}"></td>
+                            <td th:text="${course.durationOfCourse}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <!-- AI Assistant Chat Section -->
+        <section class="ai-assistant-section">
+            <h2>AI Assistant</h2>
+            <div id="chat-box" class="chat-box"></div>
+            <div class="chat-input-row">
+                <input type="text" id="user-input" placeholder="Type your question here..." />
+                <button id="send-btn" type="button">Ask</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Common Footer -->
+    <footer class="footer-common">
+        <p>&copy; 2025 Course Management System. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/student-dashboard.js}"></script>
+    <script>
+      window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon("/logout");
+      });
+    </script>
+</body>
+</html>

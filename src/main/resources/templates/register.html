@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - Course Management System</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a th:href="@{/}"><img th:src="@{/images/78660466.png}" alt="Logo"></a>
+        </div>
+        <div class="navbar-links">
+            <a th:href="@{/about}">About</a>
+            <a th:href="@{/login}">LogIn</a>
+        </div>
+    </nav>
+
+    <div class="register-page-container">
+        <div class="register-image-section">
+            <img th:src="@{/images/student registration image.png}" alt="Registration Graphic">
+        </div>
+        <div class="register-form-section">
+            <div class="form-container">
+                <h2>Register With Us</h2>
+                <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+                <form th:action="@{/register}" method="post" th:object="${user}">
+                    <div class="input-group">
+                        <label for="nameOfUser">First Name</label>
+                        <input type="text" id="nameOfUser" th:field="*{nameOfUser}" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" th:field="*{password}" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class="footer-common">
+         <p>&copy; 2025 Course Management System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

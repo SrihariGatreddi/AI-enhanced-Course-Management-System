@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img th:src="@{/images/mainLogo.png}" alt="Logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#analytics" class="nav-link active" data-target="analytics-content"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#manage-instructors" class="nav-link" data-target="instructors-content"><i class="fas fa-chalkboard-teacher"></i> Manage Instructors</a></li>
+                    <li><a href="#manage-courses" class="nav-link" data-target="courses-content"><i class="fas fa-book"></i> Manage Courses</a></li>
+                    <li><a href="#manage-students" class="nav-link" data-target="students-content"><i class="fas fa-user-graduate"></i> Manage Students</a></li>
+                    <li><a href="#recommend-course" class="nav-link" data-target="recommend-content"><i class="fas fa-star"></i> Recommend Course</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content Pane -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Welcome, Admin!</h1>
+                <p>Here's a summary of your application's activity.</p>
+            </header>
+
+            <!-- Content sections that will be shown/hidden -->
+            <section id="analytics-content" class="content-section active">
+                <!-- Analytics content will be loaded here -->
+                <h2>Analytics Overview</h2>
+                <div class="analytics-grid">
+                    <div class="card">
+                        <i class="fas fa-users"></i>
+                        <h3>Total Students</h3>
+                        <p class="stat-number" th:text="${totalStudents ?: '0'}">0</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-fire"></i>
+                        <h3>Active Users</h3>
+                        <p class="stat-number" th:text="${activeUsers ?: '0'}">0</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Total Views</h3>
+                        <p class="stat-number" th:text="${totalViews ?: '0'}">0</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Total Errors</h3>
+                        <p class="stat-number" th:text="${totalErrors ?: '0'}">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="instructors-content" class="content-section">
+                <h2>Manage Instructors</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="instructor : ${instructors}">
+                            <td th:text="${instructor.userId}"></td>
+                            <td th:text="${instructor.nameOfUser}"></td>
+                            <td th:text="${instructor.email}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Add Instructor</h3>
+                <form th:action="@{/admin/dashboard/instructors/add}" method="post">
+                    <input type="text" name="nameOfUser" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Add Instructor</button>
+                </form>
+                <div th:if="${message}" class="alert">Instructor added successfully.</div>
+            </section>
+
+            <section id="courses-content" class="content-section">
+                <h2>Manage Courses</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Instructor ID</th>
+                            <th>Course Name</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="course : ${courses}">
+                            <td th:text="${course.courseId}"></td>
+                            <td th:text="${course.userId}"></td>
+                            <td th:text="${course.courseName}"></td>
+                            <td th:text="${course.durationOfCourse}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Add Course</h3>
+                <form th:action="@{/admin/dashboard/courses/add}" method="post">
+                    <input type="number" name="userId" placeholder="Instructor ID" required>
+                    <input type="text" name="courseName" placeholder="Course Name" required>
+                    <input type="text" name="durationOfCourse" placeholder="Duration" required>
+                    <button type="submit">Add Course</button>
+                </form>
+                <div th:if="${message}" class="alert">Course added successfully.</div>
+            </section>
+
+            <section id="students-content" class="content-section">
+                <h2>Manage Students</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Roll Number</th>
+                            <th>Student Name</th>
+                            <th>Course Name</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="student : ${students}">
+                            <td th:text="${student.studentId}"></td>
+                            <td th:text="${student.rollNumber}"></td>
+                            <td th:text="${student.studentName}"></td>
+                            <td th:text="${student.courseName}"></td>
+                            <td th:text="${student.durationOfCourse}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="recommend-content" class="content-section">
+                <h2>Recommend Course</h2>
+                <form th:action="@{/admin/dashboard/recommend}" method="post">
+                    <input type="number" name="studentId" placeholder="Student ID" required>
+                    <button type="submit">Generate Recommendation</button>
+                </form>
+                <div th:if="${recommendation}">
+                    <h3>AI Recommendation</h3>
+                    <p th:text="${recommendation}"></p>
+                </div>
+                <div th:if="${emailDraft}">
+                    <h3>Email Draft</h3>
+                    <textarea readonly th:text="${emailDraft}"></textarea>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script th:src="@{/js/admin-dashboard.js}"></script>
+    <script>
+      window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon("/logout");
+      });
+    </script>
+</body>
+</html>

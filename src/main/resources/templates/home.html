@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img th:src="@{/images/78660466.png}" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a th:href="@{/about}">About</a>
+            <a th:href="@{/login}">LogIn</a>
+            <a th:href="@{/register}">Student Registration</a>
+        </div>
+    </nav>
+
+    <!-- Main Body -->
+    <main class="main-content">
+        <!-- Section 1: Info and Image -->
+        <section class="section-one">
+            <div class="info-box">
+                <h2>Welcome to the Course Management System</h2>
+                <div class="metrics">
+                    <div class="metric-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <span th:text="${totalStudents ?: '0'}">0</span>
+                        <p>Students Enrolled</p>
+                    </div>
+                    <div class="metric-item">
+                        <i class="fas fa-book-open"></i>
+                        <span th:text="${totalCourses ?: '0'}">0</span>
+                        <p>Courses Available</p>
+                    </div>
+                    <div class="metric-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span th:text="${totalTeachers ?: '0'}">0</span>
+                        <p>Teachers Available</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-image">
+                <img th:src="@{/images/course-management.png}" alt="Course Management System">
+            </div>
+        </section>
+
+        <!-- Section 2: Available Courses Slider -->
+        <h2 class="section-heading">Available Courses</h2>
+        <section class="slider-section">
+            <div class="slider">
+                <div class="slide-track">
+                    <!-- Add 10 slides for continuous loop -->
+                    <div class="slide"><img th:src="@{/images/course1.png}" alt="Course 1"></div>
+                    <div class="slide"><img th:src="@{/images/course2.png}" alt="Course 2"></div>
+                    <div class="slide"><img th:src="@{/images/course3.png}" alt="Course 3"></div>
+                    <div class="slide"><img th:src="@{/images/course4.png}" alt="Course 4"></div>
+                    <div class="slide"><img th:src="@{/images/course5.png}" alt="Course 5"></div>
+                    <!-- Duplicate slides for smooth scroll -->
+                    <div class="slide"><img th:src="@{/images/course1.png}" alt="Course 1"></div>
+                    <div class="slide"><img th:src="@{/images/course2.png}" alt="Course 2"></div>
+                    <div class="slide"><img th:src="@{/images/course3.png}" alt="Course 3"></div>
+                    <div class="slide"><img th:src="@{/images/course4.png}" alt="Course 4"></div>
+                    <div class="slide"><img th:src="@{/images/course5.png}" alt="Course 5"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Instructors -->
+        <h2 class="section-heading">Instructors</h2>
+        <section class="slider-section instructor-slider">
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider">
+                <div class="slide-track">
+                    <!-- Original Instructor Cards -->
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor1.png}" alt="Instructor 1">
+                            <h3>Dr. Jane Doe</h3>
+                            <p>Ph.D. in Computer Science</p>
+                            <p>Course: Advanced Java</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor2.png}" alt="Instructor 2">
+                            <h3>John Smith</h3>
+                            <p>M.S. in Data Science</p>
+                            <p>Course: Machine Learning</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor3.png}" alt="Instructor 3">
+                            <h3>Emily White</h3>
+                            <p>B.S. in Web Development</p>
+                            <p>Course: Frontend Frameworks</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor4.png}" alt="Instructor 4">
+                            <h3>Michael Brown</h3>
+                            <p>Ph.D. in Cybersecurity</p>
+                            <p>Course: Network Security</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor5.png}" alt="Instructor 5">
+                            <h3>Sarah Green</h3>
+                            <p>M.S. in Cloud Computing</p>
+                            <p>Course: AWS Cloud Services</p>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate Instructor Cards for smooth loop -->
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor1.png}" alt="Instructor 1">
+                            <h3>Dr. Jane Doe</h3>
+                            <p>Ph.D. in Computer Science</p>
+                            <p>Course: Advanced Java</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor2.png}" alt="Instructor 2">
+                            <h3>John Smith</h3>
+                            <p>M.S. in Data Science</p>
+                            <p>Course: Machine Learning</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor3.png}" alt="Instructor 3">
+                            <h3>Emily White</h3>
+                            <p>B.S. in Web Development</p>
+                            <p>Course: Frontend Frameworks</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor4.png}" alt="Instructor 4">
+                            <h3>Michael Brown</h3>
+                            <p>Ph.D. in Cybersecurity</p>
+                            <p>Course: Network Security</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="instructor-card">
+                            <img th:src="@{/images/instructor5.png}" alt="Instructor 5">
+                            <h3>Sarah Green</h3>
+                            <p>M.S. in Cloud Computing</p>
+                            <p>Course: AWS Cloud Services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Learning Partners -->
+
+        <h2 class="section-heading-center">Learning Partners</h2>
+        <section class="partners-grid">
+            <div class="partner-item">
+                <img th:src="@{/images/partner1.png}" alt="Partner 1">
+            </div>
+            <div class="partner-item">
+                <img th:src="@{/images/partner2.png}" alt="Partner 2">
+            </div>
+            <div class="partner-item">
+                <img th:src="@{/images/partner3.png}" alt="Partner 3">
+            </div>
+            <div class="partner-item">
+                <img th:src="@{/images/partner4.png}" alt="Partner 4">
+            </div>
+            <div class="partner-item">
+                <img th:src="@{/images/partner5.png}" alt="Partner 5">
+            </div>
+            <div class="partner-item">
+                <img th:src="@{/images/partner6.png}" alt="Partner 6">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Enroll with us</h3>
+                <ul>
+                    <li><a href="#">How to apply</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Fee Structure</a></li>
+                    <li><a href="#">Student welfare</a></li>
+                    <li><a href="#">Help desk</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About us</h3>
+                <ul>
+                    <li><a href="#">About REC</a></li>
+                    <li><a href="#">The Chairman desk</a></li>
+                    <li><a href="#">Governing Council</a></li>
+                    <li><a href="#">Grievances Cell</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Grow with us</h3>
+                <ul>
+                    <li><a href="#">Placements</a></li>
+                    <li><a href="#">Career Development</a></li>
+                    <li><a href="#">Incubation Center</a></li>
+                    <li><a href="#">RAGHU Connects MATLAB</a></li>
+                    <li><a href="#">Culture at REC</a></li>
+                    <li><a href="#">Alumni</a></li>
+                    <li><a href="#">Jobs at REC</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Innovation and Startup Policies</a></li>
+                    <li><a href="#">AICTE</a></li>
+                    <li><a href="#">IIC</a></li>
+                    <li><a href="#">RTI</a></li>
+                    <li><a href="#">Mandatory-Disclosure AICTE</a></li>
+                    <li><a href="#">Undertaking UGC</a></li>
+                    <li><a href="#">IQAC</a></li>
+                    <li><a href="#">NAAC</a></li>
+                    <li><a href="#">Academic Bank of Credits (ABC)</a></li>
+                    <li><a href="#">Ombudsman</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Get in touch with us</h3>
+                <p>📧 info@raghuenggcollege.in</p>
+                <p>📞 08922-248001 / 248002</p>
+                <p>📱 8297355115 (Training & Placements)</p>
+                <p>📍 Dakamarri, Bheemunipatnam Mandal, Visakhapatnam - 531162</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Course Management System. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script th:src="@{/js/main.js}"></script>
+    <script>
+      window.addEventListener("beforeunload", function () {
+        navigator.sendBeacon("/logout");
+      });
+    </script>
+</body>
+</html>

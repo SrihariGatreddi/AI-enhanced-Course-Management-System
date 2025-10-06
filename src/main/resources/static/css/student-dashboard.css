@@ -1,0 +1,383 @@
+/* ====================
+   1. Student Dashboard Specific Styles
+   ==================== */
+
+:root {
+    --radiant-orange: #FF4F18;
+    --pure-white: #FFFFFF;
+    --fog-gray: #F2F4F7;
+    --coal-black: #141117;
+    --border-color: #dee2e6;
+    --light-blue-bg: #E0F2FE;
+}
+
+/* Import Glober font if available, otherwise fallback to sans-serif */
+@font-face {
+    font-family: 'Glober';
+    src: url('/css/fonts/Glober-Regular.woff2') format('woff2'),
+         url('/css/fonts/Glober-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, .btn, .welcome-text, .tagline, .courses-table th, .courses-table td {
+    font-family: 'Glober', 'Poppins', Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #ece6fa 0%, #f2f4f7 100%); /* Light violet to fog gray */
+    color: var(--coal-black);
+    line-height: 1.6;
+}
+
+/* Dashboard Navbar */
+.dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--pure-white);
+    padding: 0.8rem 4rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-nav .navbar-logo img {
+    height: 45px;
+}
+
+.btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enroll {
+    background-color: var(--radiant-orange);
+    color: var(--pure-white);
+    border: 2px solid var(--radiant-orange);
+}
+
+.btn-enroll:hover {
+    background-color: #E04515;
+    transform: translateY(-2px);
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: var(--radiant-orange);
+    border: 2px solid var(--radiant-orange);
+    margin-left: 1rem;
+}
+
+.btn-logout:hover {
+    background-color: var(--radiant-orange);
+    color: var(--pure-white);
+}
+
+/* Main Dashboard Layout */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem 4rem;
+}
+
+.dashboard-main-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 0 4rem 2rem 4rem;
+}
+
+.dashboard-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-top-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-top-image {
+    margin-top: 5px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(141, 110, 255, 0.12);
+    opacity: 0.97;
+    background: transparent;
+}
+
+.welcome-text {
+    min-width: 180px;
+    max-width: 320px;
+    margin-bottom: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-text h1 {
+    color: #5B2A9C;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-text .tagline {
+    color: #6C3483;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-top: 0.2rem;
+}
+
+.welcome-text .tagline span {
+    font-weight: 700;
+    color: #5B2A9C;
+    opacity: 0.85;
+}
+
+/* Courses Section */
+.courses-section {
+    flex: 2;
+    background: var(--pure-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.courses-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--coal-black);
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.courses-table th, .courses-table td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.courses-table th {
+    background: var(--light-blue-bg);
+    font-weight: 600;
+}
+
+.courses-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* AI Assistant Section */
+.ai-assistant-section {
+    flex: 1;
+    background: var(--pure-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 2rem;
+    min-width: 320px;
+    max-width: 400px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-header {
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--coal-black);
+    color: var(--pure-white);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--pure-white);
+}
+.chat-header p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.chat-box {
+    flex: 1;
+    background: #f7f7fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+    max-height: 220px;
+}
+
+.chat-message {
+    margin-bottom: 0.75rem;
+}
+
+.chat-message p {
+    margin: 0;
+    padding: 0.8rem 1rem;
+    border-radius: 18px;
+}
+
+.chat-message.ai {
+    background: #e0f2fe;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    color: #1e293b;
+    align-self: flex-start;
+}
+.chat-message.ai p {
+    background-color: var(--light-blue-bg);
+    border-bottom-left-radius: 4px;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+    margin-left: auto;
+}
+.chat-message.user p {
+    background-color: var(--radiant-orange);
+    color: var(--pure-white);
+    border-bottom-right-radius: 4px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.chat-input input[type="text"] {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+}
+.chat-input input:focus {
+    outline: none;
+    border-color: var(--radiant-orange);
+}
+
+.chat-input button {
+    background: var(--radiant-orange);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.chat-input button:hover {
+    background: #e03e0f;
+}
+
+/* Common Footer */
+.footer-common {
+    background: var(--pure-white);
+    padding: 1.2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.footer-common .social-links {
+    margin-top: 0.5rem;
+}
+
+.footer-common .social-links a {
+    margin: 0 0.5rem;
+    color: #333;
+    font-size: 1.5rem;
+    transition: color 0.2s;
+}
+
+.footer-common .social-links a:hover {
+    color: var(--radiant-orange);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    .ai-assistant-section {
+        height: auto; /* Let height be natural */
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .dashboard-main-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0 1rem 1rem 1rem;
+    }
+    .dashboard-top-row {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    .dashboard-top-image {
+        max-width: 98vw;
+        margin-bottom: 1rem;
+    }
+    .welcome-text {
+        max-width: 98vw;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-main-flex {
+        flex-direction: column;
+        padding: 0 1rem 1rem 1rem;
+    }
+    .courses-section, .ai-assistant-section {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+    }
+    .dashboard-top-image {
+        margin: 24px auto 16px auto;
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-nav, .dashboard-container {
+        padding: 1rem 2rem;
+    }
+}

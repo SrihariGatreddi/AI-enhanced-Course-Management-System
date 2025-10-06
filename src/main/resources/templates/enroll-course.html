@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Enroll New Course</title>
+    <link rel="stylesheet" href="/css/enroll-course.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/images/78660466.png" alt="Logo" class="logo">
+        </div>
+        <div class="navbar-right">
+            <a href="/student/dashboard" class="nav-link">Back to Dashboard</a>
+            <span class="student-profile">
+                <span id="student-name" th:text="${studentName}">Student Name</span>
+            </span>
+        </div>
+    </nav>
+
+    <!-- Main Body -->
+    <div class="main-container">
+        <div class="main-left">
+            <img src="/images/student registration3.png" alt="Course Illustration" class="main-image">
+        </div>
+        <div class="main-right">
+            <div class="slider-container">
+                <div class="slider" id="course-slider">
+                    <!-- Slider images will be inserted here by JS -->
+                </div>
+            </div>
+            <div class="enroll-form-container">
+                <h2>Enroll into your desired Course</h2>
+                <form id="enroll-form">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+
+                    <label for="rollNumber">Roll Number:</label>
+                    <input type="text" id="rollNumber" name="rollNumber" required>
+
+                    <label for="courseSelect">Select Course:</label>
+                    <select id="courseSelect" name="courseName" required>
+                        <option value="">Loading courses...</option>
+                    </select>
+
+                    <button type="submit" class="submit-btn">Enroll</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span>&copy; 2025 CMS. All rights reserved.</span>
+        <div class="social-links">
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="/js/enroll-course.js"></script>
+</body>
+</html>

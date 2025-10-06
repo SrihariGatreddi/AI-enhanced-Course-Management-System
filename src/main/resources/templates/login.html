@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Course Management System</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form-section">
+            <div class="home-link">
+                <a th:href="@{/}"><i class="fas fa-arrow-left"></i> Return to Home</a>
+            </div>
+
+            <div class="form-container">
+                <h2>Welcome Back!</h2>
+                <p>Please enter your details to sign in.</p>
+
+                <div th:if="${param.error}" class="alert alert-danger">
+                    Invalid email or password.
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    You have been logged out.
+                </div>
+
+                <form th:action="@{/login}" method="post">
+                    <div class="input-group">
+                        <label for="username">Email Address</label>
+                        <input type="email" id="username" name="username" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Sign In</button>
+                </form>
+                <div class="register-link">
+                    <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="login-image-section">
+            <!-- The background image will be set in CSS -->
+        </div>
+    </div>
+</body>
+</html>

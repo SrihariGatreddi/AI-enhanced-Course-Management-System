@@ -1,0 +1,1001 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+
+:root {
+
+    --radiant-orange: #FF4F18;
+
+    --pure-white: #FFFFFF;
+
+    --fog-gray: #F2F4F7;
+
+    --coal-black: #141117;
+
+    --border-color: #dee2e6;
+
+}
+
+
+
+*, *::before, *::after {
+
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    margin: 0;
+
+    background: linear-gradient(to bottom, var(--fog-gray), var(--pure-white));
+
+    color: var(--coal-black);
+
+    overflow-x: hidden;
+
+    line-height: 1.6;
+
+}
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+
+
+/* ====================
+
+2. Navbar
+
+==================== */
+
+/* Find and update this rule */
+
+.navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background-color: var(--pure-white);
+
+    /* UPDATED: Increased vertical padding for more space */
+
+    padding: 1rem 4rem;
+
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+
+/* Find and update this rule */
+
+.navbar-logo img {
+
+    /* UPDATED: Increased logo height */
+
+    height: 55px;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.navbar-logo img:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+
+.navbar-links a {
+
+    color: var(--radiant-orange);
+
+    margin-left: 2rem;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    position: relative;
+
+    padding-bottom: 5px;
+
+    transition: color 0.3s ease;
+
+}
+
+
+
+.navbar-links a:hover {
+
+    color: var(--coal-black);
+
+}
+
+
+
+.navbar-links a::after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 0;
+
+    height: 2px;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: var(--coal-black);
+
+    transition: width 0.3s ease;
+
+}
+
+
+
+.navbar-links a:hover::after {
+
+    width: 100%;
+
+}
+
+
+
+/* ====================
+
+3. Main Content & Sections
+
+==================== */
+
+
+
+.main-content {
+
+    padding: 2rem 4rem;
+
+}
+
+
+
+.section-heading {
+
+    text-align: left;
+
+    margin-bottom: 2rem;
+
+    font-size: 2.2rem;
+
+    color: var(--coal-black);
+
+    font-weight: 700;
+
+    position: relative;
+
+    padding-bottom: 0.5rem;
+
+}
+
+
+
+.section-heading::after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 60px;
+
+    height: 3px;
+
+    bottom: 0;
+
+    left: 0;
+
+    background-color: var(--radiant-orange);
+
+}
+
+
+
+.section-heading-center {
+
+    text-align: center;
+
+    margin-top: 4rem;
+
+    margin-bottom: 2.5rem;
+
+    font-size: 2.2rem;
+
+    color: var(--coal-black);
+
+    font-weight: 700;
+
+    position: relative;
+
+    padding-bottom: 0.5rem;
+
+}
+
+
+
+.section-heading-center::after {
+
+    content: '';
+
+    position: absolute;
+
+    width: 60px;
+
+    height: 3px;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: var(--radiant-orange);
+
+}
+
+
+
+
+
+/* ====================
+
+4. Section One: Info & Metrics
+
+==================== */
+
+
+
+.section-one {
+
+    display: flex;
+
+    gap: 3rem;
+
+    align-items: center;
+
+    margin-bottom: 4rem;
+
+}
+
+
+
+.info-box {
+
+    flex: 1.2;
+
+}
+
+
+
+.info-box h2 {
+
+    font-size: 2.8rem;
+
+    color: var(--coal-black);
+
+    margin-top: 0;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+
+.metrics {
+
+    display: flex;
+
+    gap: 1.5rem;
+
+    margin-top: 2.5rem;
+
+}
+
+
+
+.metric-item {
+
+    background-color: var(--coal-black);
+
+    padding: 1.5rem 1rem;
+
+    border-radius: 8px;
+
+    width: 140px;
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+.metric-item i {
+
+    font-size: 2.5rem;
+
+    color: var(--radiant-orange);
+
+    margin-bottom: 1rem;
+
+    transition: color 0.3s ease;
+
+}
+
+
+
+.metric-item:hover {
+
+    background-color: var(--radiant-orange);
+
+    transform: translateY(-5px);
+
+}
+
+
+
+.metric-item:hover i {
+
+    color: white;
+
+}
+
+
+
+.metric-item span {
+
+    display: block;
+
+    font-size: 2rem;
+
+    font-weight: 600;
+
+    color: white;
+
+    line-height: 1;
+
+}
+
+
+
+.metric-item p {
+
+    margin: 0.5rem 0 0 0;
+
+    color: white;
+
+    font-weight: 400;
+
+}
+
+
+
+.info-image {
+
+    flex: 1;
+
+}
+
+
+
+.info-image img {
+
+    width: 100%;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+/* ====================
+
+5. Slider Section
+
+==================== */
+
+.slider-section {
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 2rem 0;
+
+}
+
+
+
+.slider-controls {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+
+.slider-btn {
+
+    pointer-events: auto;
+
+    background-color: rgba(255, 255, 255, 0.8);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 50%;
+
+    width: 50px;
+
+    height: 50px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+
+
+.slider-btn.prev-btn {
+
+    margin-left: -25px;
+
+}
+
+.slider-btn.next-btn {
+
+    margin-right: -25px;
+
+}
+
+
+
+.slider-btn:hover {
+
+    background-color: var(--radiant-orange);
+
+    color: var(--pure-white);
+
+    transform: scale(1.1);
+
+}
+
+
+
+.slider-btn i {
+
+    font-size: 1.2rem;
+
+}
+
+
+
+.slider {
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+
+.slide-track {
+
+    display: flex;
+
+    transition: transform 0.5s ease-in-out;
+
+}
+
+
+
+.slide {
+
+    flex: 0 0 25%;
+
+    max-width: 25%;
+
+    padding: 0 15px;
+
+}
+
+
+
+.slide img {
+
+    width: 100%;
+
+    border-radius: 10px;
+
+    transition: transform 0.3s ease;
+
+    border: 1px solid var(--border-color);
+
+}
+
+
+
+.slide img:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+
+/* ====================
+
+6. Instructors & Partners Sections
+
+==================== */
+
+
+
+.instructor-card {
+
+    background: var(--pure-white);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    border-bottom: 4px solid var(--radiant-orange);
+
+}
+
+
+
+.instructor-card img {
+
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+
+}
+
+
+
+.instructor-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+}
+
+
+
+/* ====================
+
+NEW: Static Partners Grid (Corrected for Triangle Layout)
+
+==================== */
+
+
+
+/* ====================
+
+UPDATED: Static Partners Grid (Card-less)
+
+==================== */
+
+
+
+.partners-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 2rem 4rem; /* Increased horizontal gap for more space */
+
+    margin-top: 2rem;
+
+    max-width: 1200px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+}
+
+
+
+.partner-item {
+
+    /* Flexbox rules to create the 4x2 triangle layout */
+
+    flex-basis: calc(25% - 4rem);
+
+    min-width: 180px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* REMOVED card styles: background, padding, shadow */
+
+}
+
+
+
+.partner-item img {
+
+    /* INCREASED logo size */
+
+    max-height: 1000px;
+
+    width: auto;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.partner-item:hover img {
+
+    /* Added a subtle hover effect directly to the logo */
+
+    transform: scale(1.1);
+
+}
+
+/* ====================
+
+7. Footer
+
+==================== */
+
+
+
+.footer {
+
+    background-color: var(--coal-black);
+
+    color: var(--fog-gray);
+
+    padding: 3rem 4rem 1.5rem;
+
+    margin-top: 4rem;
+
+}
+
+
+
+.footer-container {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 2.5rem;
+
+    margin-bottom: 2.5rem;
+
+}
+
+
+
+.footer-column h3 {
+
+    color: var(--radiant-orange);
+
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+
+    font-weight: 600;
+
+}
+
+
+
+.footer-column ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+
+.footer-column ul li {
+
+    margin-bottom: 0.7rem;
+
+}
+
+
+
+.footer-column ul li a, .footer-column p {
+
+    color: var(--fog-gray);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+
+}
+
+
+
+.footer-column ul li a:hover {
+
+    color: var(--radiant-orange);
+
+}
+
+
+
+.footer-bottom {
+
+    text-align: center;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid #495057;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+
+.social-links a {
+
+    margin: 0 0.5rem;
+
+}
+
+
+
+.social-links i {
+
+    font-size: 1.5rem;
+
+    color: var(--fog-gray);
+
+    opacity: 0.7;
+
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+
+}
+
+
+
+.social-links a:hover i {
+
+    opacity: 1;
+
+    transform: scale(1.1);
+
+    color: var(--radiant-orange);
+
+}
+
+
+
+/* ====================
+
+8. Responsive Design
+
+==================== */
+
+
+
+@media (max-width: 1024px) {
+
+    .slide {
+
+        flex-basis: 33.33%;
+
+        max-width: 33.33%;
+
+    }
+
+}
+
+
+
+
+
+@media (max-width: 992px) {
+
+    .navbar, .main-content, .footer {
+
+        padding-left: 2rem;
+
+        padding-right: 2rem;
+
+    }
+
+
+
+    .section-one {
+
+        flex-direction: column;
+
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        padding-top: 1rem;
+
+        padding-bottom: 1rem;
+
+    }
+
+
+
+    .navbar-links {
+
+        margin-top: 1rem;
+
+    }
+
+
+
+    .navbar-links a {
+
+        margin: 0 0.8rem;
+
+    }
+
+
+
+    .metrics {
+
+        flex-direction: column;
+
+    }
+
+
+
+    .slide {
+
+        flex-basis: 50%;
+
+        max-width: 50%;
+
+    }
+
+
+
+    .footer-bottom {
+
+        flex-direction: column-reverse;
+
+    }
+
+
+
+    .social-links {
+
+        margin-bottom: 1rem;
+
+    }
+
+}
+
+
+
+@media (max-width: 480px) {
+
+    .slide {
+
+        flex-basis: 100%;
+
+        max-width: 100%;
+
+    }
